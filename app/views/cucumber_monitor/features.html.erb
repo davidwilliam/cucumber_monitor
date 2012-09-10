@@ -1,0 +1,24 @@
+<h1>Features Cucumber</h1>
+
+<p>
+Você tem <%= @features.size %> features do Cucumber.
+</p>
+
+<%= render 'search_form' %>
+
+<table class='table table-bordered table-striped'>
+  <tr>
+    <th class="col3">#</th>
+    <th>Nome</th>
+    <th>Descrição</th>
+    <th class="col25">Arquivo</th>
+  </tr>
+  <% @features.each_with_index do |feature, i|%>
+  <tr>
+    <td><%= i+1 %></td>
+    <td><%= link_to feature.name, show_feature_cucumber_monitor_path(feature.name) %></td>
+    <td><%= feature.description %></td>
+    <td><%= feature.file %></td>
+  </tr>
+  <% end %>
+</table>

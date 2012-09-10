@@ -1,0 +1,48 @@
+div.feature_container {
+  padding: 20px;
+  background: #eeeeee;
+  margin-bottom: 10px;
+}
+
+div.feature_container hr {
+  padding: 0px 0 10px 0;
+  margin: 0;
+}
+
+div.feature_container h4 {
+  background: #fff;
+  display: inline-block;
+  padding: 10px 30px 10px 30px;
+  margin-bottom: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-left: 40px;
+}
+
+div.feature_container .steps {
+  background: #fff;
+  margin: 0 0 20px 0;
+  padding: 20px 20px 10px 20px;
+}
+
+div.context {
+  background: #6BBA70;
+}
+
+div.feature_container .steps table {
+  width: 80%;
+  border: solid 1px #ebebeb;
+  border-radius: 10px;
+  margin: 10px 0 20px 0;
+}
+
+div.feature_container .steps table th {
+  padding: 5px;
+  background: #ccc;
+}
+
+div.feature_container .steps table td {
+  padding: 5px;
+  border-bottom: #ebebeb solid 1px;
+  border-right: #ebebeb solid 1px;
+}

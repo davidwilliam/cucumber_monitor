@@ -1,0 +1,22 @@
+<h1>Busca</h1>
+
+<%= render 'search_form' %>
+
+<p>
+  <%= link_to "Voltar para features", features_cucumber_monitor_path %>
+</p>
+
+<div class="feature_container">
+  <h4>Resultados da busca</h4>
+  <div class="steps">
+  <% @search_results.each do |step| %>
+    <strong><%= step.description %></strong><br />
+    <em>(Step: <%= step.description %>. Escopo: <%= step.parent.name %>. Feature: <%= link_to step.parent.feature.file, show_feature_cucumber_monitor_path(step.parent.feature.name) %>)</em>
+    <hr /> 
+  <% end %>
+  </div>
+</div>
+
+<p>
+  <%= link_to "Voltar para features", features_cucumber_monitor_path %>
+</p>
