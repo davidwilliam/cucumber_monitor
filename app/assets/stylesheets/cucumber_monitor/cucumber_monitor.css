@@ -1,3 +1,51 @@
+body {
+  font-family: "Lucida Console";
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  color: #ebebeb;
+  background-color: #ebebeb;
+}
+
+#main {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
+#main table {
+  border: solid 1px #ebebeb;
+  border-radius: 5px;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+  width: 90%;
+}
+
+#main table th {
+  background: #aaa;
+  color: #fff;
+  padding: 5px;
+}
+
+#main table td {
+  padding: 3px;
+  border-bottom: solid 1px #ebebeb;
+  border-right: solid 1px #ebebeb;
+}
+
+#main table tr.even {
+  background: #ebebeb;
+}
+
+#main tabl tr.odd {
+  background: #fff;
+}
+
 div.feature_container {
   padding: 20px;
   background: #eeeeee;

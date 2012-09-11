@@ -1,5 +1,7 @@
 class CucumberMonitorController < ApplicationController
 
+	layout 'cucumber_monitor'
+
   def features
     @features = CucumberMonitor.new.features
   end
