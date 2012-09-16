@@ -10,16 +10,16 @@ module CucumberMonitor
       @id = id
     end
 
-    def siblings
-      parent.steps - [self]
+    def siblings_and_self
+      parent.steps
     end
 
     def previous
-      siblings.where(id: self.id - 1)
+      siblings_and_self.where(id: self.id - 1)
     end
 
     def next
-      siblings.where(id: self.id + 1)
+      siblings_and_self.where(id: self.id + 1)
     end
 
     def table?

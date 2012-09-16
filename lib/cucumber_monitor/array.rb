@@ -8,6 +8,10 @@ class Array
         result << item
       end
 
+      if item.respond_to?(:description) && !item.description.nil? && !options[:description].nil? && item.description.include?(options[:description])
+        result << item
+      end
+
       if item.respond_to?(:id) && item.id == options[:id]
         result << item
       end
