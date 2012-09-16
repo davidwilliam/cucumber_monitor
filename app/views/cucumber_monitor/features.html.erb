@@ -1,7 +1,7 @@
-<h1>Features Cucumber</h1>
+<h1><%= t(".title") %></h1>
 
 <p>
-Você tem <%= @features.size %> features do Cucumber.
+  <%= t(".total_features_note", total: @features.size) %>
 </p>
 
 <%= render 'search_form' %>
@@ -9,9 +9,9 @@ Você tem <%= @features.size %> features do Cucumber.
 <table class='table table-bordered table-striped'>
   <tr>
     <th class="col3">#</th>
-    <th>Nome</th>
-    <th>Descrição</th>
-    <th class="col25">Arquivo</th>
+    <th><%= t(".table.th.name") %></th>
+    <th><%= t(".table.th.description") %></th>
+    <th class="col25"><%= t(".table.th.file") %></th>
   </tr>
   <% @features.each_with_index do |feature, i|%>
   <tr class="<%= cycle('even','odd') %>">

@@ -1,0 +1,47 @@
+"pt-BR":
+  buttons:
+    search: Buscar
+  links: 
+    back_to_features_link: Voltar para lista de funcionalidades
+  cucumber_monitor:
+    features:
+      title: Funcionalidades do Cucumber
+      total_features_note: "Você tem %{total} funcionalidades"
+      table:
+        th:
+          name: Nome
+          description: Descrição
+          file: Arquivo
+    show_feature:
+      feature: Funcionalidade
+      background: Contexto
+      scenario: Cenário
+    search:
+      title: Busca
+      search_results: Resultados da busca
+      scope: Escopo
+      file: Arquivo
+
+"en":
+  buttons: 
+    search: Search
+  links:
+    back_to_features_link: Back to features list
+  cucumber_monitor:
+    features:
+      title: Cucumber Features
+      total_features_note: "You have %{total} features"
+      table:
+        th:
+          name: name
+          description: Description
+          file: File
+    show_feature:
+      feature: Feature
+      background: Background
+      scenario: Scenario
+    search: 
+      title: Search
+      search_results: Search results
+      scope: Scope
+      file: File

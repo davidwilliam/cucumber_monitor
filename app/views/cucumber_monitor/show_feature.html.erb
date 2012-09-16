@@ -1,17 +1,17 @@
 <%= stylesheet_link_tag 'cucumber_monitor' %>
 
-<h1>Feature: <%= @feature.name %></h1>
+<h1><%= "#{t(".feature")} #{@feature.name}" %></h1>
 
 <h3><%= @feature.description %></h3>
 
 <p>
-<%= link_to "Voltar para features", features_cucumber_monitor_path %>
+<%= link_to t("links.back_to_features_link"), features_cucumber_monitor_path %>
 </p>
 
 <% if @feature.contexts.any? %>
 <div class="feature_container context">
   <% @feature.contexts.each do |context|%>
-    <h4>Contexto</h4>
+    <h4><%= t(".background") %></h4>
     <div class="steps">
       <% context.steps.each do |step| %>
         <%= step.formatted.html_safe %>
@@ -26,7 +26,7 @@
 
 <div class="feature_container">
   <% @feature.scenarios.each_with_index do |scenario, i|%>
-    <h4>Cenário: <%= scenario.name %></h4>
+    <h4><%= "#{t(".scenario")} #{scenario.name}" %></h4>
     <div class="steps">
     <% scenario.steps.each do |step| %>
       <%= step.formatted.html_safe %>
@@ -38,4 +38,4 @@
   <% end %>
 </div>
 
-<%= link_to "Voltar para features", features_cucumber_monitor_path %>
+<%= t("links.back_to_features_link"), features_cucumber_monitor_path %>
