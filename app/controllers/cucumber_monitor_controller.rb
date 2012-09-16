@@ -11,7 +11,9 @@ class CucumberMonitorController < ApplicationController
   end
 
   def search
-    @search_results = CucumberMonitor.new.search(params[:criteria])
+    features = CucumberMonitor.new.features.where(name: params[:criteria])
+    @features_search_results = features.kind_of?(Array) ? features : [features]
+    @steps_search_results = CucumberMonitor.new.search(params[:criteria])
   end
 
 end

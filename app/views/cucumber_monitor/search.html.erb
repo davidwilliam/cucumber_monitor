@@ -7,12 +7,31 @@
 </p>
 
 <div class="feature_container">
-  <h4><%= t(".search_results") %></h4>
+  <h4><%= t(".features_search_results") %></h4>
   <div class="steps">
-  <% @search_results.each do |step| %>
-    <strong><%= step.description %></strong><br />
-    <em>(<%= "#{t(".scope")}: #{step.parent.name}" %>. <%= t(".file") %>: <%= link_to step.parent.feature.file, show_feature_cucumber_monitor_path(step.parent.feature.name) %>)</em>
-    <hr /> 
+  <% if @features_search_results.any? %>
+    <% @features_search_results.each do |feature| %>
+      <strong><%= feature.description %></strong><br />
+      <em>(<%= feature.name %>. <%= feature.description %>. <%= t(".file") %>: <%= link_to feature.file, show_feature_cucumber_monitor_path(feature.name) %>)</em>
+      <hr /> 
+    <% end %>
+  <% else %>
+    <%= t(".results_not_found_for", criteria: params[:criteria]).html_safe %>
+  <% end %>
+  </div>
+</div>
+
+<div class="feature_container">
+  <h4><%= t(".steps_search_results") %></h4>
+  <div class="steps">
+  <% if @steps_search_results.any? %>
+    <% @steps_search_results.each do |step| %>
+      <strong><%= step.description %></strong><br />
+      <em>(<%= "#{t(".scope")}: #{step.parent.name}" %>. <%= t(".file") %>: <%= link_to step.parent.feature.file, show_feature_cucumber_monitor_path(step.parent.feature.name) %>)</em>
+      <hr /> 
+    <% end %>
+  <% else %>
+    <%= t(".results_not_found_for", criteria: params[:criteria]).html_safe %>
   <% end %>
   </div>
 </div>

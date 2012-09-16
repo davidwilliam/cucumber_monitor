@@ -1,4 +1,4 @@
 <%= form_tag search_cucumber_monitor_path, method: :get do %>
-  <%= text_field_tag :criteria %>
+  <%= text_field_tag :criteria, params[:criteria] %>
   <%= submit_tag t("buttons.search") %>
 <% end %>

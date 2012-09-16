@@ -19,8 +19,11 @@
     search:
       title: Busca
       search_results: Resultados da busca
+      features_search_results: Resultado da busca por funcionalidades
+      steps_search_results: Resultado da busca por passos
       scope: Escopo
       file: Arquivo
+      results_not_found_for: "Nenhum resultado encontrado para '<strong>%{criteria}</strong>'"
 
 "en":
   buttons: 
@@ -43,5 +46,8 @@
     search: 
       title: Search
       search_results: Search results
+      features_search_results: Features search results
+      steps_search_results: Steps search results
       scope: Scope
       file: File
+      results_not_found_for: "Results not found for '<strong>%{criteria}</strong>'"

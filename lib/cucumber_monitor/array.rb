@@ -4,7 +4,7 @@ class Array
   def where(options={})
     result = []
     self.each do |item|
-      if item.respond_to?(:name) && item.name == options[:name]
+      if item.respond_to?(:name) && item.name.include?(options[:name])
         result << item
       end
 
