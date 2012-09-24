@@ -18,7 +18,9 @@
       <% context.steps.each do |step| %>
         <div class="step_description">
           <%= step.formatted.html_safe %>
-          <div class="step_result" id="<%= step.code %>">-</div>
+          <% if step.not_a_table %>
+            <div class="step_result" id="<%= step.code %>">-</div>
+          <% end %>
         </div>
         <% if step.not_a_table %>
           <hr />
@@ -36,7 +38,9 @@
     <% scenario.steps.each do |step| %>
       <div class="step_description">
         <%= step.formatted.html_safe %>
-        <div class="step_result" id="<%= step.code %>">-</div>
+        <% if step.not_a_table %>
+          <div class="step_result" id="<%= step.code %>">-</div>
+        <% end %>
       </div>
       <% if step.not_a_table %>
         <hr /> 
