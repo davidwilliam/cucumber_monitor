@@ -9,6 +9,7 @@ require 'cucumber_monitor/context'
 require 'cucumber_monitor/step'
 require 'cucumber_monitor/string'
 require 'cucumber_monitor/array'
+require 'cucumber_monitor/feature_runner'
 
 module CucumberMonitor
 

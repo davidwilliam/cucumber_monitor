@@ -2,10 +2,13 @@ module CucumberMonitor
 
   class Step
 
-    attr_accessor :description, :parent, :id
+    attr_accessor :description, :code, :parent, :id
 
     def initialize(description, parent, id)
       @description = description.strip
+      code_first_part = parent.name.blank? ? parent.keyword.parameterize : parent.name.parameterize
+      code_second_part = @description.parameterize
+      @code = "#{code_first_part}-#{code_second_part}"
       @parent = parent
       @id = id
     end

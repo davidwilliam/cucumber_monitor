@@ -1,5 +1,6 @@
 body {
   font-family: "Lucida Console";
+  font-size: 11px;
 }
 
 hr {
@@ -93,4 +94,35 @@ div.feature_container .steps table td {
   padding: 5px;
   border-bottom: #ebebeb solid 1px;
   border-right: #ebebeb solid 1px;
+}
+
+.step_description {
+  display: inline-block;
+  width: 100%;
+}
+
+.step_result {
+  width: 5%;
+  padding: 5px;
+  border: solid 1px #ccc;
+  display: inline-block;
+  float: right;
+  font-size: 11px;
+  text-align: center;
+}
+
+.run_feature {
+  width: 150px;
+  float: right;
+  padding: 10px;
+  display: block;
+  background: #006699;
+  text-align: center;
+}
+
+.run_feature a {
+  font-size: 11px;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
 }

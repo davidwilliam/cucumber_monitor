@@ -16,4 +16,12 @@ class CucumberMonitorController < ApplicationController
     @steps_search_results = CucumberMonitor.new.search(params[:criteria])
   end
 
+  def feature_runner
+    respond_to do |format|
+      format.js do
+        @json_feature_result = CucumberMonitor::FeatureRunner.run_and_return_json(name: params[:name])
+      end
+    end
+  end
+
 end

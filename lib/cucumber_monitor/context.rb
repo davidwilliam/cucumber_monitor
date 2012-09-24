@@ -4,10 +4,11 @@ module CucumberMonitor
 
   class Context
 
-    attr_accessor :name, :feature
+    attr_accessor :name, :keyword, :feature
 
     def initialize(name,feature)
       @name = name
+      @keyword = I18n.t("background")
       @feature = feature
     end
 
@@ -18,7 +19,7 @@ module CucumberMonitor
       record = false
       count = 0
       feature.lines.each_with_index do |line, i|
-        if line.include?(I18n.t("background"))
+        if line.include?(keyword)
           started = true
         end
         if started && !stopped

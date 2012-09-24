@@ -8,13 +8,18 @@
 <%= link_to t("links.back_to_features_link"), features_cucumber_monitor_path %>
 </p>
 
+<div class="run_feature"><%= link_to 'Executar feature', feature_runner_cucumber_monitor_path(@feature.name), remote: true, id: 'run_feature_link' %></div>
+
 <% if @feature.contexts.any? %>
 <div class="feature_container context">
   <% @feature.contexts.each do |context|%>
     <h4><%= t(".background") %></h4>
     <div class="steps">
       <% context.steps.each do |step| %>
-        <%= step.formatted.html_safe %>
+        <div class="step_description">
+          <%= step.formatted.html_safe %>
+          <div class="step_result" id="<%= step.code %>">-</div>
+        </div>
         <% if step.not_a_table %>
           <hr />
         <% end %>
@@ -29,7 +34,10 @@
     <h4><%= "#{t(".scenario")} #{scenario.name}" %></h4>
     <div class="steps">
     <% scenario.steps.each do |step| %>
-      <%= step.formatted.html_safe %>
+      <div class="step_description">
+        <%= step.formatted.html_safe %>
+        <div class="step_result" id="<%= step.code %>">-</div>
+      </div>
       <% if step.not_a_table %>
         <hr /> 
       <% end %>

@@ -4,10 +4,11 @@ module CucumberMonitor
   
   class Scenario
 
-    attr_accessor :name, :feature
+    attr_accessor :name, :keyword, :feature
 
     def initialize(name,feature)
       @name = name
+      @keyword = I18n.t("scenario")
       @feature = feature
     end
 

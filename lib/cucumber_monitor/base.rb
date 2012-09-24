@@ -7,6 +7,10 @@ module CucumberMonitor
       Dir.pwd.to_s + '/features'
     end
 
+    def self.cucumber_output_file
+      Dir.pwd.to_s + '/tmp/cucumber.out'
+    end
+
     def locate
       "Printing: #{I18n.t("feature")}"
     end

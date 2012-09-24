@@ -1,0 +1,10 @@
+$(function() {
+  <% @json_feature_result.first['elements'].each do |element| %>
+    <% element['steps'].each do |step| %>
+      $("#<%= step['code'] %>").html("<%= step['result']['status'] %>");
+    <% end %>
+  <% end %>
+
+  $("#run_feature_link").html("Executar feature");
+ 
+});

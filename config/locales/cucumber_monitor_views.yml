@@ -1,4 +1,8 @@
 "pt-BR":
+  results:
+    passed: passou
+    failed: falhou
+    skipped: pulou
   buttons:
     search: Buscar
   links: 
@@ -16,6 +20,7 @@
       feature: Funcionalidade
       background: Contexto
       scenario: Cenário
+
     search:
       title: Busca
       search_results: Resultados da busca
@@ -26,6 +31,10 @@
       results_not_found_for: "Nenhum resultado encontrado para '<strong>%{criteria}</strong>'"
 
 "en":
+  results:
+    passed: passou
+    failed: falhou
+    skipped: pulou
   buttons: 
     search: Search
   links:
@@ -43,6 +52,10 @@
       feature: Feature
       background: Background
       scenario: Scenario
+      results:
+        passed: passou
+        failed: falhou
+        skipped: pulou
     search: 
       title: Search
       search_results: Search results
