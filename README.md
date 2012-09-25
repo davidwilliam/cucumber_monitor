@@ -6,7 +6,11 @@ Cucumber is an extraordinary tool that allows developers and customers (and any 
 
 **Cucumber Monitor** aims to give a better view of the functionality described in Cucumber and enable better customer interaction.
 
-With **Cucumber Monitor**, you have a dynamic documentation in real time. The client (and any other team member) can browse through the features, search for keywords and track features, scenarios and steps that are added to Cucumber as developers move forward in their work.
+With **Cucumber Monitor**, you have a dynamic documentation in real time. The client (and any other team member) can: 
+
+* Browse through the features
+* Search for keywords and track features, scenarios and steps that are added to Cucumber as developers move forward in their work
+* Performs the features directly from the browser and displays the test results (*new*)
 
 ## Installation
 
@@ -22,7 +26,7 @@ Run the following command to install it:
 
 Assuming you have a Rails application with Cucumber features, you need to access: /cucumber_monitor/features. Let's say you are running your application on localhost using port 3000:
 
-`http://localhost:3000/cucumber_monitor/features`
+`http://localhost:3000/cucumber_monitor`
 
 You will see a list with all cucumber features you have. You can view the contents of each one and you can search by keywords.
 
