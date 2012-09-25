@@ -32,9 +32,9 @@
 
 "en":
   results:
-    passed: passou
-    failed: falhou
-    skipped: pulou
+    passed: passed
+    failed: failed
+    skipped: skipped
   buttons: 
     search: Search
   links:
