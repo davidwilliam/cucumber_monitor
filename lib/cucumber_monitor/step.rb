@@ -59,7 +59,7 @@ module CucumberMonitor
         table_content.each do |th|
           output << "    <th>#{th}</th>\n"
         end
-        output << "    <th>Result</th>"
+        output << "    <th>&nbsp;</th>"
         output << "  </tr>\n"
         output << "</table>\n" if table_last_line?
       elsif table_row?
@@ -67,7 +67,7 @@ module CucumberMonitor
         table_content.each do |td|
           output << "    <td>#{td}</td>\n"
         end
-        output << "    <td class='td_result'>-</td>"
+        output << "    <td class='td_result'>&nbsp;</td>"
         output << "  </tr>\n"
         output << "</table>\n" if table_last_line?
       else
