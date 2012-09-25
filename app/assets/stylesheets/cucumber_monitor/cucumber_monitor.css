@@ -126,3 +126,7 @@ div.feature_container .steps table td {
   color: #fff;
   text-decoration: none;
 }
+
+.td_result {
+  width: 6%;
+}
