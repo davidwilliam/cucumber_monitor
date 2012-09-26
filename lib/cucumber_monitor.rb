@@ -18,7 +18,7 @@ module CucumberMonitor
   end
 
   def self.path
-    "#{CucumberMonitor::Engine.root}#{app_test_dir}"
+    (Rails.root if defined?(Rails)) || "#{CucumberMonitor::Engine.root}#{app_test_dir}"
   end
 
   def self.app_test_dir
