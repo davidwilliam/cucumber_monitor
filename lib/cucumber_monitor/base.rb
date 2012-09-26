@@ -3,12 +3,16 @@
 module CucumberMonitor
   class Base
 
+    def self.path
+      CucumberMonitor.path
+    end
+
     def self.features_path
-      Dir.pwd.to_s + '/features'
+      "#{path}/features"
     end
 
     def self.cucumber_output_file
-      Dir.pwd.to_s + '/tmp/cucumber.out'
+      "#{path}/tmp/cucumber.out"
     end
 
     def locate

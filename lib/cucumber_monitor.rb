@@ -17,4 +17,21 @@ module CucumberMonitor
     CucumberMonitor::Base.new
   end
 
+  def self.path
+    "#{CucumberMonitor::Engine.root}#{app_test_dir}"
+  end
+
+  def self.app_test_dir
+    "/test/dummy" if Rails.env == 'test'
+  end
+
+  def self.cucumber_rails_ready?
+    files = [
+              "#{path}/script/cucumber",
+              "#{path}/features",
+              "#{path}/lib/tasks/cucumber.rake"
+            ]
+    files.all? { |f| File.exist?(f) } && YAML.load_file("#{path}/config/database.yml").has_key?("cucumber")
+  end
+
 end

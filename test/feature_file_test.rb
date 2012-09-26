@@ -15,7 +15,7 @@ class FeatureFileTest < ActiveSupport::TestCase
   end
 
   test "feature should return its contexts when applicable" do
-  	assert_equal 1, @feature_two.contexts.size
+  	assert_equal 1, @cucumber.features.last.contexts.size
   end
 
 end
