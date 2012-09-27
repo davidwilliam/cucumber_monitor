@@ -13,6 +13,10 @@ module CucumberMonitor
       @id = id
     end
 
+    def description_without_keyword
+      description.gsub(/^\w+\s/,'')
+    end
+
     def siblings_and_self
       parent.steps
     end
