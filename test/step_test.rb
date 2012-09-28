@@ -8,7 +8,7 @@ class StepTest < ActiveSupport::TestCase
     siblings = [
     	           'Given I am at the google page',
     	           'When I search for "New York Times"',
-    	           'Then I should se "The New York Times - Breaking News, World News & Multimedia"',
+    	           'Then I should see "The New York Times - Breaking News, World News & Multimedia"',
                ]
     assert_equal siblings, step.siblings_and_self.map(&:description)
   end
@@ -37,11 +37,11 @@ class StepTest < ActiveSupport::TestCase
     feature = @cucumber.features.where(name: 'google_search')
     first_step = feature.scenarios.first.steps.first
 
-    expected_definition_lines = ['Given /^I am at the google page$/ do', 'visit "http://www.google.com', 'end']
+    expected_definition_lines = ['Given /^I am at the google page$/ do', 'visit "http://www.google.com"', 'end']
 
     # expected_first_step_definition = 'google_search_step.rb:1'
 
-    assert_equal expected_definition_lines, first_step.definition
+    assert_equal expected_definition_lines, first_step.definition.content
   end
 
 end

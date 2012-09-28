@@ -29,7 +29,8 @@ class BaseTest < ActiveSupport::TestCase
               'Then I should see my personal information',
               'Then I should see "Personal data successfully changed"',
               'And I should see "Petter Summers"',
-              'I should see the following table:'
+              'I should see the following table:',
+              'Then I should see "The New York Times - Breaking News, World News & Multimedia"'
             ]
 
     assert_equal steps, @cucumber.search(term).map(&:description)

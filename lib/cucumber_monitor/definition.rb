@@ -11,7 +11,7 @@ module CucumberMonitor
       @file = file
     end
 
-    def content
+    def raw_content
       df = []
       started = false
       stopped = false
@@ -30,6 +30,10 @@ module CucumberMonitor
         end
       end
       df
+    end
+
+    def content
+      raw_content.collect{|c| c.strip }
     end
 
     def core_content
