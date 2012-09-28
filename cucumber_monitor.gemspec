@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.description = 'Visualization and manipulation of cucumber features.'
   s.summary = "Puts your features in a highlighted position. Adds a dashboard for viewing, searching and better identification of yours scenarios and steps."
   s.email = 'david@webhall.com.br'
-  s.homepage = "http://www.webhall.com.br"
+  s.homepage = "https://github.com/davidwilliam/cucumber_monitor"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
