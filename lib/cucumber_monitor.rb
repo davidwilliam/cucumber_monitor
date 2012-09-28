@@ -4,6 +4,8 @@ require "cucumber_monitor/engine"
 
 require 'cucumber_monitor/base'
 require 'cucumber_monitor/feature_file'
+require 'cucumber_monitor/step_definition_file'
+require 'cucumber_monitor/definition'
 require 'cucumber_monitor/scenario'
 require 'cucumber_monitor/context'
 require 'cucumber_monitor/step'

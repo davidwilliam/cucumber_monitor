@@ -15,7 +15,8 @@ class FeatureFileTest < ActiveSupport::TestCase
   end
 
   test "feature should return its contexts when applicable" do
-  	assert_equal 1, @cucumber.features.last.contexts.size
+    feature = CucumberMonitor.new.features.where(name: 'change_my_data')
+  	assert_equal 1, feature.contexts.size
   end
 
 end

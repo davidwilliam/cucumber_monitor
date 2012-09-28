@@ -28,6 +28,7 @@ module CucumberMonitor
 			prepared_json = json
 			prepared_json.first['elements'].each do |element|
 				element['steps'].each do |step|
+					puts step['match']['location']
 					description = "#{step['keyword']}#{step['name']}"
 					code_first_part = element['name'].blank? ?  element['keyword'].parameterize : element['name'].parameterize
 					code_second_part = description.parameterize

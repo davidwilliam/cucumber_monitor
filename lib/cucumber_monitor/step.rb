@@ -1,3 +1,5 @@
+require 'amatch'
+
 module CucumberMonitor
 
   class Step
@@ -53,6 +55,10 @@ module CucumberMonitor
 
     def not_a_table
       !table?
+    end
+
+    def definition
+      Base.new.search_match(description)
     end
 
     def formatted

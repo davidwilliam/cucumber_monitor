@@ -3,6 +3,7 @@ class Test::Unit::TestCase
     @cucumber = CucumberMonitor.new
     @feature_one = @cucumber.features.first
     @feature_two = @cucumber.features.last
+    @feature_three = @cucumber.features.where(name: 'change_my_data')
     @path = CucumberMonitor.path
     @root = CucumberMonitor::Engine.root
     copy_sample_features
@@ -17,7 +18,6 @@ class Test::Unit::TestCase
   end
 
   def copy_sample_features
-    FileUtils.cp("#{@root}/features/administration.feature","#{@path}/features/administration.feature")
-    FileUtils.cp("#{@root}/features/change_my_data.feature","#{@path}/features/change_my_data.feature")
+    FileUtils.cp_r("#{@root}/sample_files/features",@path)
   end
 end
