@@ -44,4 +44,18 @@ class StepTest < ActiveSupport::TestCase
     assert_equal expected_definition_lines, first_step.definition.content
   end
 
+  # test "step should tell when a step was not implemented yet" do
+  #   feature = @cucumber.features.where(name: 'change_my_data')
+  #   step = feature.scenarios.first.steps.first
+
+  #   assert_nil step.definition
+  # end
+
+  test "step should return its params when applicable" do
+    feature = @cucumber.features.where(name: 'change_my_data')
+    step = feature.scenarios.first.steps.last
+
+    assert_equal 2, step.params.size
+  end
+
 end

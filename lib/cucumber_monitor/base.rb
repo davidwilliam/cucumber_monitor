@@ -82,14 +82,23 @@ module CucumberMonitor
     end
 
     def search_match(criteria)
-      results = []
+      search_method_core(criteria)
+      @results.min {|a,b| a[:score] <=> b[:score]}[:definition] if @results.any?
+    end
+
+    def search_match_score(criteria)
+      search_method_core(criteria)
+      @results.min {|a,b| a[:score] <=> b[:score]} if @results.any?
+    end
+
+    def search_method_core(criteria)
+      @results = []
       step_definitions.each do |step_definition|
         step_definition.definitions.each do |definition|
             matcher = Amatch::Sellers.new(criteria)
-            results << {definition: definition, score: matcher.match(definition.description)}
+            @results << {definition: definition, score: matcher.match(definition.description)}
         end
       end
-      results.min {|a,b| a[:score] <=> b[:score]}[:definition] if results.any?
     end
 
   end

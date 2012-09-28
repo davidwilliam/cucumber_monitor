@@ -11,7 +11,7 @@ Feature: Change personal data
     And I fill in "Name" with "Peter Summers"
     And I press "Save"
     Then I should see "Personal data successfully changed"
-    And I should see "Petter Summers"
+    And I should see 1 username for "Petter Summers"
 
   Scenario: Listing my roles
     When I access the system

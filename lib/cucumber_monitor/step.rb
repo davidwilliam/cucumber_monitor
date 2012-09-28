@@ -61,6 +61,14 @@ module CucumberMonitor
       Base.new.search_match(description)
     end
 
+    def params
+      result = []
+      [description.scan(/(\d+)/).flatten, description.scan(/"(.*)"/).flatten].each do |p|
+        result << p.flatten if p.any?
+      end
+      result.flatten
+    end
+
     def formatted
       output = ""
       if table_first_line?

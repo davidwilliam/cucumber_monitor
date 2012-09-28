@@ -28,7 +28,7 @@ class BaseTest < ActiveSupport::TestCase
               'Then I should see "Invalid username/password"',
               'Then I should see my personal information',
               'Then I should see "Personal data successfully changed"',
-              'And I should see "Petter Summers"',
+              'And I should see 1 username for "Petter Summers"',
               'I should see the following table:',
               'Then I should see "The New York Times - Breaking News, World News & Multimedia"'
             ]
