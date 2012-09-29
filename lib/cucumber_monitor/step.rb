@@ -62,11 +62,21 @@ module CucumberMonitor
     end
 
     def params
-      result = []
-      [description.scan(/(\d+)/).flatten, description.scan(/"(.*)"/).flatten].each do |p|
-        result << p.flatten if p.any?
+      unless table?
+        result = []
+        [description.scan(/(\d+)/).flatten, description.scan(/"(.*)"/).flatten].each do |p|
+          result << p.flatten if p.any?
+        end
+        result.flatten
       end
-      result.flatten
+    end
+
+    def named_params
+      unless table?
+        if definition
+          definition.description[/\|(.*)\|/].gsub(/\|/,'').split(",").map{|p| p.strip}
+        end
+      end
     end
 
     def implemented?
