@@ -84,22 +84,13 @@ module CucumberMonitor
     end
 
     def search_match(criteria)
-      search_method_core(criteria)
-      @results.first if @results.any?
-    end
-
-    def search_match_score(criteria)
-      search_method_core(criteria)
-      @results.first if @results.any?
-    end
-
-    def search_method_core(criteria)
-      @results = []
+      results = []
       step_definitions.each do |step_definition|
         step_definition.definitions.each do |definition|
-            @results << definition if criteria.match(definition.matcher)
+          results << definition if criteria.match(definition.matcher)
         end
       end
+      results.first if results.any?
     end
 
   end
