@@ -1,5 +1,3 @@
-require 'amatch'
-
 module CucumberMonitor
 
   class Step

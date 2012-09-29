@@ -10,7 +10,6 @@ gem "jquery-rails"
 gem 'cucumber-rails', '>= 1.1.1', require: false
 gem 'sqlite3'
 gem 'capybara-mechanize'
-gem 'amatch'
 
 group :test do
   gem 'database_cleaner'
