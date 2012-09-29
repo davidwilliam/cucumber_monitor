@@ -4,14 +4,15 @@ module CucumberMonitor
 
   class StepDefinitionFile
 
-    attr_accessor :file
+    attr_accessor :file, :path
 
     def self.keywords
       [I18n.t("given"), I18n.t("when"), I18n.t("then"), I18n.t("and"), I18n.t("but")].collect{|c| c[2..-1]}
     end
 
-    def initialize(file)
+    def initialize(file,path)
       @file = file
+      @path = path
     end
 
     def name
@@ -27,9 +28,9 @@ module CucumberMonitor
 
     def definitions
       df = []
-      lines.each do |line|
+      lines.each_with_index do |line,i|
         if self.class.keywords.any?{|k| line.include?(k)}
-          df << Definition.new(line.strip,self)
+          df << Definition.new(line.strip,self,i+1)
         end
       end
       df

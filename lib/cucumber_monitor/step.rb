@@ -58,7 +58,7 @@ module CucumberMonitor
     end
 
     def definition
-      Base.new.search_match(description)
+      Base.new.search_match(description_without_keyword)
     end
 
     def params
@@ -67,6 +67,10 @@ module CucumberMonitor
         result << p.flatten if p.any?
       end
       result.flatten
+    end
+
+    def implemented?
+      !definition.nil?
     end
 
     def formatted

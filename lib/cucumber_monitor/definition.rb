@@ -4,11 +4,16 @@ module CucumberMonitor
 
   class Definition
 
-    attr_accessor :description, :file
+    attr_accessor :description, :file, :line
 
-    def initialize(description, file)
+    def initialize(description, file, line)
       @description = description
       @file = file
+      @line = line
+    end
+
+    def matcher
+      description.scan(/\/(.*)\//).flatten.first
     end
 
     def raw_content
@@ -38,6 +43,14 @@ module CucumberMonitor
 
     def core_content
       content[1..-2].collect{|c| c.strip }
+    end
+
+    def location
+      "#{file.file}:#{line}"
+    end
+
+    def location_path
+      "#{file.path}:#{line}"
     end
 
   end

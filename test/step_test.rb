@@ -38,18 +38,20 @@ class StepTest < ActiveSupport::TestCase
     first_step = feature.scenarios.first.steps.first
 
     expected_definition_lines = ['Given /^I am at the google page$/ do', 'visit "http://www.google.com"', 'end']
+    expected_definition_location = 'google_search_step.rb:1'
 
-    # expected_first_step_definition = 'google_search_step.rb:1'
 
     assert_equal expected_definition_lines, first_step.definition.content
+    assert_equal expected_definition_location, first_step.definition.location
   end
 
-  # test "step should tell when a step was not implemented yet" do
-  #   feature = @cucumber.features.where(name: 'change_my_data')
-  #   step = feature.scenarios.first.steps.first
+  test "step should tell when a step was not implemented yet" do
+    feature = @cucumber.features.where(name: 'change_my_data')
+    step = feature.scenarios.first.steps.first
 
-  #   assert_nil step.definition
-  # end
+    assert_nil step.definition
+    assert !step.implemented?
+  end
 
   test "step should return its params when applicable" do
     feature = @cucumber.features.where(name: 'change_my_data')

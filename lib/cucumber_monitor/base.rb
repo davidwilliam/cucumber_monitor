@@ -32,7 +32,8 @@ module CucumberMonitor
     def step_definitions_files
       collection = []
       dir_entries = Dir.entries(self.class.step_definitions_path)
-      search_and_include_step_definitions(dir_entries)
+      path = Dir.pwd
+      search_and_include_step_definitions(dir_entries,path)
     end
 
     def search_and_include_features(dir_entries, collection=[])
@@ -44,13 +45,13 @@ module CucumberMonitor
       collection
     end
 
-    def search_and_include_step_definitions(dir_entries, collection=[])
+    def search_and_include_step_definitions(dir_entries, path, collection=[])
       dir_entries.each do |entrie|
         if entrie.include?('_step.rb')
           collection << entrie
         end
       end
-      collection
+      {collection: collection, path: path}
     end
 
     def features
@@ -63,8 +64,9 @@ module CucumberMonitor
 
     def step_definitions
       collection = []
-      step_definitions_files.each do |file|
-        collection << CucumberMonitor::StepDefinitionFile.new(file)  
+      step_definitions_files[:collection].each do |file|
+        path = "#{step_definitions_files[:path]}/#{file}"
+        collection << StepDefinitionFile.new(file,path)  
       end
       collection
     end
@@ -83,20 +85,19 @@ module CucumberMonitor
 
     def search_match(criteria)
       search_method_core(criteria)
-      @results.min {|a,b| a[:score] <=> b[:score]}[:definition] if @results.any?
+      @results.first if @results.any?
     end
 
     def search_match_score(criteria)
       search_method_core(criteria)
-      @results.min {|a,b| a[:score] <=> b[:score]} if @results.any?
+      @results.first if @results.any?
     end
 
     def search_method_core(criteria)
       @results = []
       step_definitions.each do |step_definition|
         step_definition.definitions.each do |definition|
-            matcher = Amatch::Sellers.new(criteria)
-            @results << {definition: definition, score: matcher.match(definition.description)}
+            @results << definition if criteria.match(definition.matcher)
         end
       end
     end
