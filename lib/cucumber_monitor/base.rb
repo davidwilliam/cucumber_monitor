@@ -32,7 +32,7 @@ module CucumberMonitor
     def step_definitions_files
       collection = []
       dir_entries = Dir.entries(self.class.step_definitions_path)
-      path = Dir.pwd
+      path = self.class.step_definitions_path + "/step_definitions"
       search_and_include_step_definitions(dir_entries,path)
     end
 
@@ -97,7 +97,9 @@ module CucumberMonitor
       @results = []
       step_definitions.each do |step_definition|
         step_definition.definitions.each do |definition|
-            @results << definition if criteria.match(definition.matcher)
+          if definition.matcher && criteria.match(definition.matcher)
+            @results << definition
+          end
         end
       end
     end
