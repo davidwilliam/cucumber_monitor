@@ -55,7 +55,7 @@ class StepTest < ActiveSupport::TestCase
   end
 
   test "step should return its params when applicable" do
-    feature = @cucumber.features.where(name: 'change_my_data')
+    feature = @cucumber.features.where(name: 'google_search')
     step = feature.scenarios.first.steps.last
 
     assert_equal 2, step.params.size
