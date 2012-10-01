@@ -9,13 +9,14 @@ class StepTest < ActiveSupport::TestCase
     	           'Given I am at the google page',
     	           'When I search for "New York Times"',
     	           'Then I should see "The New York Times - Breaking News, World News & Multimedia"',
+                 'And I should see 1 occurrence of "New York Times Company"'
                ]
     assert_equal siblings, step.siblings_and_self.map(&:description)
   end
 
   test "step should get the previous step" do
   	last_step = @feature_two.scenarios.first.steps.last
-  	previous_step = 'When I search for "New York Times"'
+  	previous_step = 'Then I should see "The New York Times - Breaking News, World News & Multimedia"'
     assert_equal previous_step, last_step.previous.description
   end
 
