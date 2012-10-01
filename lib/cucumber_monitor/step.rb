@@ -60,17 +60,19 @@ module CucumberMonitor
     end
 
     def params
-      unless table?
-        result = []
-        [description.scan(/(\d+)/).flatten, description.scan(/"(.*)"/).flatten].each do |p|
-          result << p.flatten if p.any?
+      if implemented? && !table? && !named_params.blank?
+        result = description_without_keyword.match(definition.matcher)
+        data = {}
+        result.size.times do |n|
+          next if n == 0
+          data.merge!(named_params[n-1].to_sym => result[n])
         end
-        result.flatten
+        data
       end
     end
 
     def named_params
-      if definition && !table?
+      if implemented? && !table?
         definition.description[/\|(.*)\|/].gsub(/\|/,'').split(",").map{|p| p.strip}
       end
     end
