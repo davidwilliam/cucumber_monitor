@@ -70,10 +70,8 @@ module CucumberMonitor
     end
 
     def named_params
-      unless table?
-        if definition
-          definition.description[/\|(.*)\|/].gsub(/\|/,'').split(",").map{|p| p.strip}
-        end
+      if definition && !table?
+        definition.description[/\|(.*)\|/].gsub(/\|/,'').split(",").map{|p| p.strip}
       end
     end
 
