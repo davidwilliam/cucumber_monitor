@@ -61,4 +61,17 @@ class StepTest < ActiveSupport::TestCase
     assert_equal 2, step.params.size
   end
 
+  test "step should return description without keyword" do
+    feature = @cucumber.features.where(name: 'google_search')
+    description_without_keyword_1 = 'I am at the google page'
+    description_without_keyword_2 = 'I search for "New York Times"'
+    description_without_keyword_3 = 'I should see "The New York Times - Breaking News, World News & Multimedia"'
+    description_without_keyword_4 = 'I should see 1 occurrence of "New York Times Company"'
+
+    assert_equal description_without_keyword_1, feature.scenarios.first.steps[0].description_without_keyword
+    assert_equal description_without_keyword_2, feature.scenarios.first.steps[1].description_without_keyword
+    assert_equal description_without_keyword_3, feature.scenarios.first.steps[2].description_without_keyword
+    assert_equal description_without_keyword_4, feature.scenarios.first.steps[3].description_without_keyword
+  end
+
 end

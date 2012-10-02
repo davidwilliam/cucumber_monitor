@@ -14,7 +14,7 @@ module CucumberMonitor
     end
 
     def description_without_keyword
-      description.gsub(/^\w+\s/,'')
+      description.gsub(/^\S+\s/,'')
     end
 
     def siblings_and_self
