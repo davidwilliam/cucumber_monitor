@@ -22,7 +22,7 @@ I tried to show the Cucumber's features to my clients but none was excited to lo
 
 So I decided to display the features in browser, inside the rails app, so that customers can track the application features as they are added.
 
-`This project is just beginning. There is still much to be done. I'm using it in real world applications and am getting the results I expect for now. But of course there is still much to improve.`
+This project is just beginning. There is still much to be done. I'm using it in real world applications and am getting the results I expect for now. But of course there is still much to improve.
 
 ## Installation
 
