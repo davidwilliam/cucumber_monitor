@@ -32,7 +32,7 @@ module CucumberMonitor
     def step_definitions_files
       collection = []
       dir_entries = Dir.entries(self.class.step_definitions_path)
-      path = self.class.step_definitions_path + "/step_definitions"
+      path = self.class.step_definitions_path
       search_and_include_step_definitions(dir_entries,path)
     end
 
