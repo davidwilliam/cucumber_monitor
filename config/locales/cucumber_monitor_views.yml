@@ -52,10 +52,6 @@
       feature: Feature
       background: Background
       scenario: Scenario
-      results:
-        passed: passou
-        failed: falhou
-        skipped: pulou
     search: 
       title: Search
       search_results: Search results

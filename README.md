@@ -159,6 +159,44 @@ definition.core_content # returns only the implementation of the definition
 definition.location # "managin_user_step.rb:2"
 definition.location_path # "/path/to/app/features/step_definitions/managing_users_step.rb:2"
 ```
+
+### I18n
+
+You can change the language of CucumberMonitor's views by adding your own locale file:
+
+```yaml
+"en":
+  results:
+    passed: passed
+    failed: failed
+    skipped: skipped
+  buttons: 
+    search: Search
+  links:
+    back_to_features_link: Back to features list
+  cucumber_monitor:
+    features:
+      title: Cucumber Features
+      total_features_note: "You have %{total} features"
+      table:
+        th:
+          name: name
+          description: Description
+          file: File
+    show_feature:
+      feature: Feature
+      background: Background
+      scenario: Scenario
+    search: 
+      title: Search
+      search_results: Search results
+      features_search_results: Features search results
+      steps_search_results: Steps search results
+      scope: Scope
+      file: File
+      results_not_found_for: "Results not found for '<strong>%{criteria}</strong>'"
+```
+
 ## TODO
 
 * Create and implement features in browser
