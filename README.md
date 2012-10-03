@@ -74,6 +74,12 @@ feature.contexts # list of background objects
 feature.scenarios # list of scenarios objects
 ```
 
+You can also find a feature by name. It returns an array of feature objects when there is more then one feature that matches the search. It returns the feature object if there is only one feature that matches the search.
+
+```ruby
+feature = cucumber_monitor.features.where(name: 'managing_users')
+```
+
 The context (background) object returns (when present):
 
 ```ruby
@@ -92,6 +98,12 @@ scenario.name # "Adding a new user"
 scenario.keyword # "Scenario"
 scenario.feature # The feature object
 scenario.steps # list of all step objects of the given scenario
+```
+
+As you do with features, you can find scenarios by name:
+
+```ruby
+scenario = feature.scenarios.where(name: 'Adding a new user')
 ```
 
 The step object returns:
@@ -116,6 +128,18 @@ step.implemented? # returns true if the step has a step definition
 step.definition # returns the definition object
 step.params # if implemented, returns a hash with the step params. i.e.: {:email=>"david@webhall.com.br", :password=>"secret"}
 step.named_params # if implemented, returns an array of the params names. i.e.: ["email", "password"]
+```
+
+As you do with features and contexts/scenarios, you can also find steps by name. It returns an array of step objects when there is more then one step that matches the search. It returns the step object if there is only one feature that matches the search.
+
+```ruby
+cucumber_monitor.features.where(name: 'managing_users').scenarios.where(name: 'Adding a new user').steps.where(description: 'create an user')
+```
+
+If you want to search through all steps:
+
+```ruby
+cucumber_monitor.search('create') # it will return all steps that have the word 'create'
 ```
 
 The definition object returns:
