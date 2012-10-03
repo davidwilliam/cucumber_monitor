@@ -133,7 +133,7 @@ definition.matcher # the regex of the definition
 definition.content # returns an array with all the lines of the definition, including the definition regex and the end block
 definition.core_content # returns only the implementation of the definition
 definition.location # "managin_user_step.rb:2"
-definition.location_path "/path/to/app/features/step_definitions/step_definitions/administracao_step.rb:2"
+definition.location_path # "/path/to/app/features/step_definitions/managing_users_step.rb:2"
 ```
 ## TODO
 
